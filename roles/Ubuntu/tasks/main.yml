@@ -40,8 +40,8 @@
 - name: Copy Dockerfile to Ubuntu
   become: true
   copy:
-    src: /home/zamora_admin/TIP_HOA-11.1_ZAMORA_Angelo/Ubuntu_Docker/Dockerfile
-    dest: /home/zamora_admin/docker_files/
+    src: /home/adminmagnait/CpE212_Magnait-Marv_HOA11.1/Ubuntu_Docker/Dockerfile
+    dest: /home/adminmagnait/docker_files/
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: '777'
@@ -49,7 +49,7 @@
 - name: Build Docker Image
   become: true
   docker_image:
-    path: /home/zamora_admin/docker_files/
+    path: /home/adminmagnait/docker_files/
     name: apache-mariadb-image
     tag: latest
     state: present
