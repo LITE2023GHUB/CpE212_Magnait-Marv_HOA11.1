@@ -49,6 +49,7 @@
 - name: Build Docker Image
   become: true
   docker_image:
+    source: /home/adminmagnait/CpE212_Magnait-Marv_HOA11.1/Ubuntu_Docker/Dockerfile
     path: /home/adminmagnait/docker_files/
     name: apache-mariadb-image
     tag: latest
