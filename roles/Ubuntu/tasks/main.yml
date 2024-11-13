@@ -31,7 +31,7 @@
 
 - name: Create a docker directory
   file:
-    path: /home/zamora_admin/docker_files
+    path: /home/adminmagnait/docker_files
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
@@ -49,8 +49,10 @@
 - name: Build Docker Image
   become: true
   docker_image:
-    source: /home/adminmagnait/CpE212_Magnait-Marv_HOA11.1/Ubuntu_Docker/Dockerfile
-    path: /home/adminmagnait/docker_files/
     name: apache-mariadb-image
     tag: latest
     state: present
+    source: build
+    build:
+      path: /home/adminmagnait/docker_files/
+      dockerfile: Dockerfile
